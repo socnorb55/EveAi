@@ -32,8 +32,6 @@ jobs:
 
       - name: Zip Package
         run: |
-          apt-get update,
-          apt-get install -y -q zip,
           mkdir build,
           cp -rf eve_ai build,
           cd build,
