@@ -4,8 +4,6 @@ on:
   push:
     branches: ["prod"]
 
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
