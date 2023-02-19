@@ -62,7 +62,7 @@ jobs:
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID_SANDBOX }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY_SANDBOX }}
         run: |
-          ls
+          ls .
           cd terraform
           terraform init -backend-config='bucket=terraform-state-file-aws-cloud-sandbox'
           terraform fmt -diff ./
