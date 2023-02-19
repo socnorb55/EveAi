@@ -32,6 +32,7 @@ jobs:
 
       - name: Zip Package
         run: |
+          ls
           mkdir build
           cp -rf eve_ai build
           cd build
@@ -41,6 +42,8 @@ jobs:
           pip install -r eve_ai/lambda_code/requirements.txt -t lambda_layer/python
           cd lambda_layer
           zip -r ../lambda_layers.zip . -i .
+          ls
+          cd python
           ls
 
   terraform_plan:
