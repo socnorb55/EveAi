@@ -6,24 +6,7 @@ on:
       - develop
 
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v1
-
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v2
-  #       with:
-  #         python-version: 3.9
-
-  #     - name: tox
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         pip install tox==3.27.1
-  #         tox
-
-  terraform_plan:
+  pull_request:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,7 +30,6 @@ jobs:
           cd build
           zip -r ../eve_ai.zip . -i .
           cd ..
-          ls
           mkdir -p lambda_layer/python
           pip install -r eve_ai/lambda_code/requirements.txt -t lambda_layer/python
           cd lambda_layer
@@ -62,7 +44,6 @@ jobs:
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID_SANDBOX }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY_SANDBOX }}
         run: |
-          ls .
           cd terraform
           terraform init -backend-config='bucket=terraform-state-file-aws-cloud-sandbox'
           terraform fmt -diff ./
