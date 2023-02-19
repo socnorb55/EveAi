@@ -35,12 +35,12 @@ jobs:
           mkdir build,
           cp -rf eve_ai build,
           cd build,
-          zip ../eve_ai.zip -r .,
+          zip -r ../eve_ai.zip . -i .,
           cd ..,
           mkdir -p lambda_layer/python,
           pip install -r eve_ai/lambda_code/requirements.txt -t lambda_layer/python,
           cd lambda_layer,
-          zip ../lambda_layers.zip -r .
+          zip -r ../lambda_layers.zip . -i .
 
   terraform_plan:
     runs-on: ubuntu-latest
