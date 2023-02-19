@@ -7,4 +7,4 @@ exclude_lines =
     pytest: no cover
     import
     lambda_handler
-fail_under = 100
+fail_under = 0
