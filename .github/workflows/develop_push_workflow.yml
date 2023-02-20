@@ -55,7 +55,5 @@ jobs:
           terraform init -backend-config='bucket=terraform-state-file-aws-cloud-sandbox'
           terraform fmt -diff ./
           terraform validate
-          terraform plan -out=tfplan -var-file='sandbox.tfvars'
-          terraform show tfplan
           terraform apply
 
