@@ -35,6 +35,13 @@ jobs:
           cd lambda_layer
           zip -r ../lambda_layers.zip . -i .
 
+      - name: Configure AWS Credentials Action For GitHub Actions
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-region: us-east-1
+
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
 
